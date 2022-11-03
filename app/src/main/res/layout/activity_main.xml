@@ -7,10 +7,16 @@
     android:orientation="vertical"
     tools:context=".BookListMainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleview_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </androidx.recyclerview.widget.RecyclerView>
+<com.google.android.material.tabs.TabLayout
+    android:id="@+id/tablayout_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+</com.google.android.material.tabs.TabLayout>
+
+<androidx.viewpager2.widget.ViewPager2
+    android:id="@+id/viewpage2_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+</androidx.viewpager2.widget.ViewPager2>
 
 </LinearLayout>
