@@ -60,7 +60,7 @@ public class BookListMainActivity extends AppCompatActivity {
                 case 1:
                     return WebViewFragment.newInstance();
                 case 2:
-                    return WebViewFragment.newInstance();
+                    return MapViewFragment.newInstance();
             }
             return BooklistFragment.newInstance();
         }

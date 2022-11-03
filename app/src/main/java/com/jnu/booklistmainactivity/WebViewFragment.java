@@ -49,7 +49,7 @@ public class WebViewFragment extends Fragment {
         WebView webView=rootView.findViewById(R.id.web_view_main);
         WebSettings webSettings=webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webView.loadUrl("https://www.baidu.com");
+        webView.loadUrl("https://news.sina.cn/");
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
