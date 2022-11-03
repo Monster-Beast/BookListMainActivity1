@@ -49,8 +49,8 @@ public class BookListMainActivity extends AppCompatActivity {
                         String title=bundle.getString("title");
                         int position=bundle.getInt("position");
                         books.add(position,new Book(title,R.drawable.book_no_name));
+                        new DataSaver().Save(this,books);
                         myAdapater.notifyItemInserted(position);
-
                     }
                 }
             });
@@ -64,6 +64,7 @@ public class BookListMainActivity extends AppCompatActivity {
                         String title=bundle.getString("title");
                         int position=bundle.getInt("position");
                         books.get(position).setTitle(title);
+                        new DataSaver().Save(this,books);
                         myAdapater.notifyItemChanged(position);
                     }
                 }
@@ -80,9 +81,13 @@ public class BookListMainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(BookListMainActivity.this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
+        //数据数组初始化
         books=new ArrayList<>();
+        //数据载入
+        DataSaver dataSaver=new DataSaver();
+        books=dataSaver.Load(this);
         //构造一些数据
-        if(books.isEmpty()) {
+        if(books.size()==0) {
             books.add(new Book("软件项目管理案例教程（第4版）", R.drawable.book_2));
             books.add(new Book("信息安全数学基础（第2版）", R.drawable.book_1));
             books.add(new Book("创新工程实践", R.drawable.book_no_name));
@@ -121,6 +126,7 @@ public class BookListMainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 books.remove(item.getOrder());
+                                new DataSaver().Save(BookListMainActivity.this,books);
                                 myAdapater.notifyItemRemoved(item.getOrder());
                             }
                         }).create();
@@ -183,11 +189,11 @@ public class BookListMainActivity extends AppCompatActivity {
         }
 
         //重载函数使得长按无效区无效,不弹出窗口
-//        @Override
-//        public void onViewRecycled(@NonNull ViewHolder viewHolder) {
-//            viewHolder.itemView.setOnLongClickListener(null);
-//            super.onViewRecycled(viewHolder);
-//        }
+        @Override
+        public void onViewRecycled(@NonNull ViewHolder viewHolder) {
+            viewHolder.itemView.setOnLongClickListener(null);
+            super.onViewRecycled(viewHolder);
+        }
     }
 
 
