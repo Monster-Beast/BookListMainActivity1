@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jnu.booklistmainactivity.data.Book;
 import com.jnu.booklistmainactivity.data.DataSaver;
@@ -95,20 +96,22 @@ public class BookListMainActivity extends AppCompatActivity {
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case 1://增加
+            case MENU_ID_ADD://增加
                 Intent intent=new Intent(this,EditBookActivity.class);
                 intent.putExtra("position",item.getOrder());
                 addDataLauncher.launch(intent);
+                //Toast.makeText(this,"add",Toast.LENGTH_LONG).show();//跳出提示
                 myAdapater.notifyDataSetChanged();
                 break;
-            case 2://修改
+            case MENU_ID_UPDATE://修改
                 Intent intentUpdate=new Intent(this,EditBookActivity.class);
                 intentUpdate.putExtra("position",item.getOrder());
                 intentUpdate.putExtra("title",books.get(item.getOrder()).getTitle());
                 updateDataLauncher.launch(intentUpdate);
+                //Toast.makeText(this,"update",Toast.LENGTH_LONG).show();//跳出提示
                 myAdapater.notifyDataSetChanged();
                 break;
-            case 3://删除
+            case MENU_ID_DELETE://删除
                 books.remove(item.getOrder());
                 DataSaver dataSaver=new DataSaver();
                 dataSaver.Save(BookListMainActivity.this,books);
@@ -137,12 +140,14 @@ class MyAdapater extends RecyclerView.Adapter<MyAdapater.ViewHolder> {
             super(view);
             imageViewCover=view.findViewById(R.id.imageview_cover);
             textViewTitle=view.findViewById(R.id.textview_title);
+            //长按事件监听者
             view.setOnCreateContextMenuListener(this);
         }
 
         public TextView getTextViewTitle(){return textViewTitle;}
         public ImageView getImageViewCover(){return imageViewCover;}
 
+        //创建上下文菜单
         @Override
         public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
             contextMenu.add(0,MENU_ID_ADD,getAdapterPosition(),"增加");
