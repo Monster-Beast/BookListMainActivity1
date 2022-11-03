@@ -8,16 +8,10 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.Lifecycle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -28,15 +22,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
 import com.jnu.booklistmainactivity.data.Book;
 import com.jnu.booklistmainactivity.data.DataSaver;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,10 +82,8 @@ public class BookListMainActivity extends AppCompatActivity {
         //构造一些数据
         if(books.isEmpty()) {
             books.add(new Book("软件项目管理案例教程（第4版）", R.drawable.book_2));
-            books.add(new Book("创新工程实践", R.drawable.book_no_name));
             books.add(new Book("信息安全数学基础（第2版）", R.drawable.book_1));
-            books.add(new Book("dddddd",R.drawable.book_no_name));
-            books.add(new Book("aaaaaa",R.drawable.book_no_name));
+            books.add(new Book("创新工程实践", R.drawable.book_no_name));
         }
         //适配器
         myAdapater=new MyAdapater(books);
@@ -149,8 +135,8 @@ class MyAdapater extends RecyclerView.Adapter<MyAdapater.ViewHolder> {
 
         public ViewHolder(View view){
             super(view);
-            imageViewCover=view.findViewById(R.id.image_view_book_cover);
-            textViewTitle=view.findViewById(R.id.text_view_book_title);
+            imageViewCover=view.findViewById(R.id.imageview_cover);
+            textViewTitle=view.findViewById(R.id.textview_title);
             view.setOnCreateContextMenuListener(this);
         }
 
@@ -173,7 +159,7 @@ class MyAdapater extends RecyclerView.Adapter<MyAdapater.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_list,viewGroup,false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_main,viewGroup,false);
         return new ViewHolder(view);
     }
 
