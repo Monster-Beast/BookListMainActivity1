@@ -3,23 +3,21 @@ package com.jnu.booklistmainactivity.data;
 import java.io.Serializable;
 
 public class Book implements Serializable {
-    public int id;
-    public String title;
+    private String title;
+    private int resourceId;
 
     public Book(String title, int resourceId) {
         this.title=title;
-        this.id=resourceId;
+        this.resourceId=resourceId;
     }
 
     public String getTitle(){
-        return this.title;
+        return title;
     }
     public void setTitle(String title1){title=title1;}
 
     public int getCoverResourceId(){
-        return this.id;
+        return resourceId;
     }
-    public void setCoverResourceId(int coverResourceId){
-        id=coverResourceId;
-    }
+    public void setCoverResourceId(int coverResourceId){resourceId=coverResourceId;}
 }
