@@ -58,7 +58,9 @@ public class BookListMainActivity extends AppCompatActivity {
                 case 0:
                     return BooklistFragment.newInstance();
                 case 1:
-                    return BrowserFragment.newInstance();
+                    return WebViewFragment.newInstance();
+                case 2:
+                    return WebViewFragment.newInstance();
             }
             return BooklistFragment.newInstance();
         }
@@ -84,13 +86,13 @@ public class BookListMainActivity extends AppCompatActivity {
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 switch (position){
                     case 0:
-                        tab.setText("book list");
+                        tab.setText("图书");
                         break;
                     case 1:
-                        tab.setText("browser");
+                        tab.setText("新闻");
                         break;
                     case 2:
-                        tab.setText("map");
+                        tab.setText("卖家");
                         break;
                 }
             }

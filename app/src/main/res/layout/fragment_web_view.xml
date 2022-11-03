@@ -3,14 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BrowserFragment">
+    tools:context=".WebViewFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <WebView
         android:id="@+id/web_view_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
     </WebView>
 
 </FrameLayout>
