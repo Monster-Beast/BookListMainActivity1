@@ -1,22 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".BookListMainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-<com.google.android.material.tabs.TabLayout
-    android:id="@+id/tablayout_header"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-</com.google.android.material.tabs.TabLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="?attr/colorSecondary"
+        app:subtitleTextColor="#FFF"
+        app:titleTextColor="#FFF"
+        tools:ignore="MissingConstraints"
+        app:contentInsetStartWithNavigation="0dp">
+    </androidx.appcompat.widget.Toolbar>
 
-<androidx.viewpager2.widget.ViewPager2
-    android:id="@+id/viewpage2_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-</androidx.viewpager2.widget.ViewPager2>
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:openDrawer="start">
+        <!--主内容区-->
+        <LinearLayout
+            android:id="@+id/content_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_main"
+                android:layout_width="match_parent"
+                android:layout_height="600dp">
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end|bottom"
+                android:src="@drawable/icon_add"/>
+        </LinearLayout>
+        <!--左侧抽屉菜单-->
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width=""
+                    android:layout_height="">
+
+                </ImageView>
+            </LinearLayout>
+        </com.google.android.material.navigation.NavigationView>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </LinearLayout>

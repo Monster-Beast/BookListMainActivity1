@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/all_bar"
+        android:icon="@drawable/icon_all"
+        android:title="书架"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/unfolder_bar"
+        android:icon="@drawable/icon_unfolder"
+        android:title="展开"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/search_bar"
+        android:icon="@drawable/icon_search"
+        android:title="搜索"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/topright_bar"
+        android:icon="@drawable/icon_topright"
+        android:title="其他"
+        app:showAsAction="never"/>
+</menu>
