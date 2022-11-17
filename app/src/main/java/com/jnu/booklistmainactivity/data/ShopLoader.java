@@ -15,10 +15,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HttpDataLoader {
+public class ShopLoader {
     // 获取网页的html源代码
     @NonNull
-    public String getHttpData(String path){
+    public String download(String path){
         try{
             URL url = new URL(path);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -48,7 +48,7 @@ public class HttpDataLoader {
 
     //解析JSON数据的函数
     @NonNull
-    public List<SiteLocation> ParseJsonData(String JsonText)
+    public List<SiteLocation> parseJson(String JsonText)
     {
         List<SiteLocation> locations=new ArrayList<>();
         try {
