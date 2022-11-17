@@ -91,6 +91,7 @@ public class MapViewFragment extends Fragment {
                 super.handleMessage(msg);
                 switch (msg.what){
                     case 1:
+                        Toast.makeText(MapViewFragment.this.getContext(),msg.obj.toString()+msg.arg1,Toast.LENGTH_LONG).show();;
                         AddMarkerOnMap(siteLocationList);
                         break;
                     default:
@@ -115,6 +116,8 @@ public class MapViewFragment extends Fragment {
                 //方法二:子线程通过handler通知主线程
                 Message message=new Message();
                 message.what=1;
+                message.arg1=666;
+                message.obj="hello";
                 handler.sendMessage(message);
             }
         }).start();
