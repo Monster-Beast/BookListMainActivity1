@@ -79,6 +79,6 @@ public class Spriter {
 
     public boolean isTouched(float touchedX, float touchedY) {
         Log.i("test",""+(touchedX-x)*(touchedX-x)+(touchedY-y)*(touchedY-y));
-        return (touchedX-x)*(touchedX-x)+(touchedY-y)*(touchedY-y)<=20000;
+        return (touchedX-x)*(touchedX-x)+(touchedY-y)*(touchedY-y)<=20000;//平方距离小于等于400就认为击中了
     }
 }
