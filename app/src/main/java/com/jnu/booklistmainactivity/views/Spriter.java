@@ -36,8 +36,7 @@ public class Spriter {
     }
     public void draw(Canvas canvas)
     {
-        Bitmap bitmap=((BitmapDrawable)context.getResources().getDrawable(R.drawable.book_no_name)).getBitmap();
-        Rect mSrcRect, mDestRect;
+        Bitmap bitmap=((BitmapDrawable)context.getResources().getDrawable(R.drawable.spriter)).getBitmap();
         Paint mBitPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
         mBitPaint.setFilterBitmap(true);

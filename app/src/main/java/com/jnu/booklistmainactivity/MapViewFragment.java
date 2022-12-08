@@ -91,7 +91,7 @@ public class MapViewFragment extends Fragment {
                 super.handleMessage(msg);
                 switch (msg.what){
                     case 1:
-                        Toast.makeText(MapViewFragment.this.getContext(),msg.obj.toString()+msg.arg1,Toast.LENGTH_LONG).show();;
+                        //Toast.makeText(MapViewFragment.this.getContext(),msg.obj.toString()+msg.arg1,Toast.LENGTH_LONG).show();;
                         AddMarkerOnMap(siteLocationList);
                         break;
                     default:

@@ -94,7 +94,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
         public void stopThread()
         {
             isDrawing=false;
-
             try {
                 join();
             } catch (InterruptedException e) {
@@ -138,14 +137,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
                 finally {
                     if(null!=canvas)surfaceHolder.unlockCanvasAndPost(canvas);
                 }
-
-
                 try {
                     sleep(20);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                //drawing
             }
         }
     }
