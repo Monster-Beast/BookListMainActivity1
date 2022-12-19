@@ -17,7 +17,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 public class DataSaverTest {
-
     @Before
     public void setUp() throws Exception {
     }
